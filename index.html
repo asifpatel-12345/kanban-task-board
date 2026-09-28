@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Task Board</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1><i class="fa-solid fa-list-check"></i> Kanban Task Board</h1>
+            <p>Drag and drop tasks to manage your daily workflow</p>
+        </header>
+
+        <div class="board">
+            <!-- To Do Column -->
+            <div class="column" id="todo-column">
+                <div class="column-header todo-header">
+                    <h2><i class="fa-regular fa-circle"></i> To Do</h2>
+                    <span class="task-count" id="todo-count">0</span>
+                </div>
+                <div class="add-task-box">
+                    <input type="text" id="todo-input" placeholder="+ Add a new task..." />
+                    <button onclick="addTask('todo-column', 'todo-input')">Add</button>
+                </div>
+                <div class="task-list" id="todo-list" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+
+            <!-- In Progress Column -->
+            <div class="column" id="progress-column">
+                <div class="column-header progress-header">
+                    <h2><i class="fa-solid fa-spinner"></i> In Progress</h2>
+                    <span class="task-count" id="progress-count">0</span>
+                </div>
+                <div class="add-task-box">
+                    <input type="text" id="progress-input" placeholder="+ Add in progress..." />
+                    <button onclick="addTask('progress-column', 'progress-input')">Add</button>
+                </div>
+                <div class="task-list" id="progress-list" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+
+            <!-- Completed Column -->
+            <div class="column" id="done-column">
+                <div class="column-header done-header">
+                    <h2><i class="fa-regular fa-circle-check"></i> Completed</h2>
+                    <span class="task-count" id="done-count">0</span>
+                </div>
+                <div class="add-task-box">
+                    <input type="text" id="done-input" placeholder="+ Add completed..." />
+                    <button onclick="addTask('done-column', 'done-input')">Add</button>
+                </div>
+                <div class="task-list" id="done-list" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
